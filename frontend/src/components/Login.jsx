@@ -3,14 +3,16 @@ import PropTypes from "prop-types";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 
+import "../styles/Login.css"
+
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import Link from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
+import { Link } from "@mui/material";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import loginImage from "../assets/images/Flying-around-world.png";
@@ -118,6 +120,7 @@ export default function Login({ setUser }) {
               onChange={evt => setPassword(evt.target.value)}
             />
             <Button
+              className="SignInButton"
               type="submit"
               fullWidth
               variant="contained"

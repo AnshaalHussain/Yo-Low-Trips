@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;800;900&display=swap');
+.MuiTypography-root.MuiTypography-h4.MuiTypography-noWrap.Brand {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 900;
+}
+
+.MuiToolbar-root {
+  background-color: #385794;
+  color: white;
+}
+
+.MuiButton-root.MuiButton-button.MuiButton-buttonPrimary.MuiButton-sizeMedium.MuiButton-buttonSizeMedium.MuiButtonBase-root.Nav-link:hover {
+  background-color: white; 
+  color: #385794;
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.6);
+}

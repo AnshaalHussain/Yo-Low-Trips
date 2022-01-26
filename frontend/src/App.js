@@ -1,13 +1,15 @@
 /* Root/ Parent component */
 import { useState, useEffect } from "react";
-import "./App.css";
-
 import {
   BrowserRouter as Router,
   Route,
   Switch,
   Redirect,
 } from "react-router-dom";
+import { StyledEngineProvider } from "@mui/material";
+
+import "./App.css";
+
 
 // import SearchBar from "./components/SearchBar";
 import Navbar from "./components/Navbar";
@@ -52,6 +54,7 @@ function App() {
   // filters are button siblings to the filter components
 
   return (
+    <StyledEngineProvider injectFirst>
     <Router>
       <div className="App">
         <Navbar user={user} setUser={setUser} code={code}/>
@@ -78,6 +81,7 @@ function App() {
         </div>
       </div>
     </Router>
+    </StyledEngineProvider>
   );
 }
 
