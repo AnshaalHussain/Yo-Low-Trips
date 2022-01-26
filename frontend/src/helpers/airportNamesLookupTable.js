@@ -1500,7 +1500,7 @@
       AKJ: "Hokkaido, Japan",
       SEL: "Seoul, Korea",
       OKJ:"Okayama, Japan",
-      FMY: "Florida, USA",
+      FMY: "Southwest Florida, USA",
     }
 
     // exports.name = airportNamesLookup;

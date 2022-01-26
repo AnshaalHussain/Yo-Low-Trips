@@ -136,14 +136,14 @@ export default function Flights(props) {
        <Typography className = "center" variant="h1">Flight Deals for {id.toUpperCase()}</Typography>
       <Grid container spacing={4} justify-content="center" alignItems="center" style={{padding:"0 100px"}} >
         <Grid item xs={4}>
-          <Item >
+          <Item className="filterBox">
             {/* <h5>Price range</h5>
       <p>Between</p>
       <Typography>{minMaxValue[0]}</Typography>
       <p>To</p>
       <Typography>{minMaxValue[1]}</Typography> */}
 
-            <PriceFilter
+            <PriceFilter className="priceFilter"
               minMaxValue={minMaxValue}
               setminMaxValue={setminMaxValue}
             />
@@ -184,28 +184,28 @@ export default function Flights(props) {
           {filterFlights.map((flight, index) => {
             return (
               <Grid item xs={12} sm={6} md={3} key={index} height="100%" alignItems="stretch">
-                <Card sx={{height:"400px"}}>
-                  <CardContent>
+                <Card  sx={{height:"400px"}}>
+                  <CardContent className="cards">
                     <Typography gutterBottom variant="h5">
                     {/* Need to add the airport name  */}
-                      {airportNamesLookup[flight.destination] ? `${airportNamesLookup[flight.destination]} - ${flight.destination}` : flight.destination}
+                      <span className="pop">{airportNamesLookup[flight.destination] ? `${airportNamesLookup[flight.destination]} - ${flight.destination}` : flight.destination}</span>
                     </Typography>
                     <Typography >
-                      Airline: {flight.flightData.airline} <br></br>
-                      flight Number: {flight.flightData.flight_number} <br></br>
-                      Departure At: {moment(flight.flightData.departure_a).format('LLL')} <br></br>
-                      Return At: {moment(flight.flightData.return_at).format('LLL')} <br></br>
-                      Expires At: {moment(flight.flightData.expires_at).format('LLL')} <br></br>
+                    <span className="titles">Airline:</span> {flight.flightData.airline} <br></br>
+                      <span className="titles">Flight Number:</span> {flight.flightData.flight_number} <br></br>
+                      <span className="titles">Departure At:</span> {moment(flight.flightData.departure_a).format('LLL')} <br></br>
+                      <span className="titles">Return At:</span> {moment(flight.flightData.return_at).format('LLL')} <br></br>
+                      <span className="titles expire">Expires At:</span> {moment(flight.flightData.expires_at).format('LLL')} <br></br>
 
                       {/* {console.log("flight data with fav", flight)} */}
                     </Typography>
                     <Typography >
-                    Price:  <span className="price">{flight.flightData.price} </span> <br></br>
+                    <span className="titles">Price</span>:  <span className="price">${flight.flightData.price} </span> <br></br>
 
                     </Typography>
 
                   </CardContent>
-                  <CardContent>
+                  <CardContent className="cards">
                     <Button
                       size="small"
                       color="primary"

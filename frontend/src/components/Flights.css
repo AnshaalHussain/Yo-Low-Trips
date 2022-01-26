@@ -12,4 +12,32 @@
 
 .price {
     float:right;
+    font-size: 3vh;
+    font-weight: bold;
+
+}
+
+.priceFilter {
+    height: 2000px;
+}
+
+.filterBox {
+    height: 100px;
+}
+
+.expire {
+    color:red;
+}
+
+.titles {
+    font-weight: bold;
+}
+
+.pop{
+    color: #385794;
+
+}
+
+.cards {
+    background-color: #F7F7F8;
 }
