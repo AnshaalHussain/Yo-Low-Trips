@@ -2,6 +2,7 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
+import moment from "moment";
 
 export default function DatesFilter(props) {
   // console.log("props.flightData", props.flightData.flights)
@@ -32,7 +33,7 @@ const sortedArray = newArray.sort()
           sx={{ "& > img": { mr: 2, flexShrink: 0 } }}
           {...props}
         >
-          {option.slice(0, 10)}
+          {moment(option).format('LLL').slice(0, -8)}
         </Box>
       )}
       renderInput={(params) => (
@@ -42,7 +43,8 @@ const sortedArray = newArray.sort()
           label="Choose a departure date"
           inputProps={{
             ...params.inputProps,
-            autoComplete: "new-password", // disable autocomplete and autofill
+            autoComplete: "new-password", 
+            value: params.inputProps.value && `${moment(params.inputProps.value).format('LLL').slice(0, -8)}`// disable autocomplete and autofill
           }}
         />
       )}

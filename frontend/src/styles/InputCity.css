@@ -1,0 +1,33 @@
+.inputCityImg {
+  width: auto;
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+  background-image: url("../assets/images/Airport-rafiki-resize.png");
+  background-size: contains;
+  background-position:left;
+  background-repeat: no-repeat;
+  text-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.tagline {
+  display: flex;
+  flex-direction: column;
+  margin-right: 400px;
+  margin-bottom: 200px;
+}
+
+.searchButton {
+  background-color: #385794;
+  color: white;
+}
+.searchButton:hover {
+  background-color: #385794;
+  color: white;
+  box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}

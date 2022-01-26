@@ -11,6 +11,12 @@ import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import { Button } from "@mui/material";
 
+//mui icons
+import SearchIcon from '@mui/icons-material/Search';
+import FlightIcon from '@mui/icons-material/Flight';
+import StarRateIcon from '@mui/icons-material/StarRate';
+import LogoutIcon from '@mui/icons-material/Logout';
+
 
 export default function Navbar({user, setUser, code}) {
   // const classes = linkStyles();
@@ -44,6 +50,7 @@ export default function Navbar({user, setUser, code}) {
               to="/search"
               sx={{ my: 1, mx: 1.5 }}
             >
+              <SearchIcon></SearchIcon>
               Search Origin
             </Button>
           }
@@ -55,6 +62,7 @@ export default function Navbar({user, setUser, code}) {
               to={`/flights/${code}`}
               sx={{ my: 1, mx: 1.5 }}
             >
+              <FlightIcon></FlightIcon>
               Flight Deals
             </Button>
           }
@@ -66,6 +74,7 @@ export default function Navbar({user, setUser, code}) {
               to="/favourites"
               sx={{ my: 1, mx: 1.5 }}
             >
+              <StarRateIcon></StarRateIcon>
               Favourites
             </Button>
           }
@@ -76,6 +85,7 @@ export default function Navbar({user, setUser, code}) {
               onClick={handleLogout}
               sx={{ my: 1, mx: 1.5 }}
             >
+              <LogoutIcon></LogoutIcon>
               Logout
             </Button>
           } 

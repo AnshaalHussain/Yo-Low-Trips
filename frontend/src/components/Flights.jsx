@@ -10,7 +10,16 @@ import {
   Container,
   Grid,
   Paper,
+  Divider,
+  Box
 } from "@mui/material";
+
+import LinearProgress from '@mui/material/LinearProgress';
+//icons
+import StarBorderIcon from '@mui/icons-material/StarBorder';
+import CheckIcon from '@mui/icons-material/Check';
+
+
 import { styled } from "@mui/material/styles";
 import { useParams } from "react-router-dom";
 import PriceFilter from "./PriceFilter";
@@ -19,6 +28,7 @@ import DatesFilter from "./DatesFilter";
 // import airportNamesLookupTable from "./helpers/airportNamesLookupTable";
 import {airportNamesLookup} from "../helpers/airportNamesLookupTable";
 import "./Flights.css";
+import Check from "@mui/icons-material/Check";
 
 
 export default function Flights(props) {
@@ -29,15 +39,15 @@ export default function Flights(props) {
 
   const priceReset = () => {
     setminMaxValue([0, 1000]);
-    console.log("resetted price");
+    //console.log("resetted price");
   };
   const destinationReset = () => {
     setSelectedDestination(null);
-    console.log("resetted destination");
+    //console.log("resetted destination");
   };
   const dateReset = () => {
     setSelectedDate(null);
-    console.log("resetted date");
+    //console.log("resetted date");
   };
 
   const Item = styled(Paper)(({ theme }) => ({
@@ -105,7 +115,7 @@ export default function Flights(props) {
 
   const handleAdd = (flightObj, index) => {
 
-   console.log("THIS IS FLIGHT OBJECT+++++", flightObj)
+   //console.log("THIS IS FLIGHT OBJECT+++++", flightObj)
   //  const { destination } = flightObj; // destructure so it's easy to access
   //  const { airline, departure_at, expires_at, flight_number, price, return_at } = flightObj.flightData
   //  const abc = new Date(departure_at).getTime();
@@ -119,11 +129,11 @@ export default function Flights(props) {
    .post(`http://localhost:3001/api/flights/${id}/user/favourites/`, { flightObj, user_id })
    .then(response => {
      const flightsData = {favourited: true, destination: flightObj.destination, flightData: {...response.data}}
-     console.log("THIS IS RESDATA+++++++", flightsData)
+     //console.log("THIS IS RESDATA+++++++", flightsData)
 
      const newFlights = [...flights]
      newFlights[index] = flightsData
-     console.log("THIS IS RES+++++++", response)
+     //console.log("THIS IS RES+++++++", response)
      setFlights(newFlights);
 
    })
@@ -133,7 +143,7 @@ export default function Flights(props) {
 
   return (
     <div>
-       <Typography className = "center" variant="h1">Flight Deals for {id.toUpperCase()}</Typography>
+       <Typography className = "center" variant="h1">Flight Deals from {id.toUpperCase()}</Typography>
       <Grid container spacing={4} justify-content="center" alignItems="center" style={{padding:"0 100px"}} >
         <Grid item xs={4}>
           <Item className="filterBox">
@@ -170,7 +180,7 @@ export default function Flights(props) {
         </Grid>
         <Grid item xs={4}>
           <Item className="departureFilter">
-            <DatesFilter setDate={setSelectedDate} flightData={filterFlights} />
+            <DatesFilter selectedDate={selectedDate} setDate={setSelectedDate} flightData={filterFlights} />
             <Button size="small" color="primary" onClick={() => dateReset()}>
               Reset Date
             </Button>
@@ -180,7 +190,16 @@ export default function Flights(props) {
 
 
       <Container>
+
+      { (filterFlights.length > 0) ? `${filterFlights.length} flights found` :
+
+      ((flights.length > 0) ? `${flights.length} flights found` : <Box sx={{ width: '100%' }}>
+      <LinearProgress />
+    </Box> )}
+
+
         <Grid container spacing={4} marginTop="100px" alignItems="stretch" >
+
           {filterFlights.map((flight, index) => {
             return (
               <Grid item xs={12} sm={6} md={3} key={index} height="100%" alignItems="stretch">
@@ -189,7 +208,9 @@ export default function Flights(props) {
                     <Typography gutterBottom variant="h5">
                     {/* Need to add the airport name  */}
                       <span className="pop">{airportNamesLookup[flight.destination] ? `${airportNamesLookup[flight.destination]} - ${flight.destination}` : flight.destination}</span>
+                      <Divider />
                     </Typography>
+
                     <Typography >
                     <span className="titles">Airline:</span> {flight.flightData.airline} <br></br>
                       <span className="titles">Flight Number:</span> {flight.flightData.flight_number} <br></br>
@@ -200,6 +221,7 @@ export default function Flights(props) {
                       {/* {console.log("flight data with fav", flight)} */}
                     </Typography>
                     <Typography >
+
                     <span className="titles">Price</span>:  <span className="price">${flight.flightData.price} </span> <br></br>
 
                     </Typography>
@@ -217,10 +239,12 @@ export default function Flights(props) {
                         color="primary"
                         onClick={() => handleAdd(flight, index)}
                       >
+                        <StarBorderIcon></StarBorderIcon>
                         Favourite
                       </Button>
                     ) : (
                       <Button size="small" color="warning">
+                        <CheckIcon></CheckIcon>
                         Favourited
                       </Button>
                     )}
