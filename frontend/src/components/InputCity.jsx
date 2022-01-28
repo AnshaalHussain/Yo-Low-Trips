@@ -58,7 +58,7 @@ export default function InputCity(props) {
               onChange={(event)=> {
                 setCity(event.target.value);
               }}
-              sx={{ border: 1, borderRadius: 1, width: 250 }}
+              sx={{ border: 1, borderRadius: 1, width: 250, paddingLeft: 1 }}
             />
             <Button
               className="searchButton"

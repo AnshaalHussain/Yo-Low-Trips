@@ -16,13 +16,13 @@ const {minMaxValue, setminMaxValue} = props
   };
 
   return (
-    <Box >
+    <Box display="flex" sx={{ width: 300 }}>
       <Slider
         // getAriaLabel={() => 'Temperature range'}
         value={minMaxValue}
         onChange={handleChange}
         min={0}
-        max={2000}
+        max={1500}
         valueLabelDisplay="auto"
         getAriaValueText={valuetext}
       />

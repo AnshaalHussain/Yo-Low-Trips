@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
+import "./FlightCodesModal.css";
 
 const style = {
   position: "absolute",
@@ -18,6 +19,8 @@ const style = {
   boxShadow: 24,
   paddingLeft: 5
 };
+
+
 // FlightCodesModal is a child of InputCity
 export default function FlightCodesModal(props) {
   let history = useHistory();
@@ -32,7 +35,7 @@ export default function FlightCodesModal(props) {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
+        <Box className="modal-text" sx={style}>
           {props.flightCodeData.map((airports, index) => {
             return (
               <div key={index}>

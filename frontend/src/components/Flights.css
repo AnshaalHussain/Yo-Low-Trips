@@ -1,5 +1,7 @@
-.center {
-    background-color: lightseagreen;
+.filterHeading {
+    color: #385794;
+    font-size: 22px;
+    font-weight: 700;
     text-align: center;
 }
 
@@ -17,12 +19,22 @@
 
 }
 
-.priceFilter {
-    height: 2000px;
+.filterBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 102.75px;
 }
 
-.filterBox {
-    height: 100px;
+.textHeading {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: #385794;
+    font-size: 24px;
+    color: white;
+    margin-bottom: 25px;
 }
 
 .expire {

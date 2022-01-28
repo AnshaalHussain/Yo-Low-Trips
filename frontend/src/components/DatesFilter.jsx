@@ -5,9 +5,18 @@ import Autocomplete from "@mui/material/Autocomplete";
 import moment from "moment";
 
 export default function DatesFilter(props) {
-  // console.log("props.flightData", props.flightData.flights)
-const newArray = props.flightData.map(flight => flight.flightData.departure_at)
-const sortedArray = newArray.sort()
+  //console.log("props.flightData", props.flightData)
+// const newArray = (props.flightData.map(flight => flight.flightData.departure_at))
+
+const sortedArray = [...new Set(props.flightData.map(item => {
+console.log(item.flightData.departure_at.slice(0, 10))
+
+  return item.flightData.departure_at.slice(0, 10)
+}))]
+console.log("SA", sortedArray)
+// const filteredArray = sortedArray.filter((flight) => (
+
+// ))
 
   // const [value, setValue] = React.useState(options[0]);
   // const [inputValue, setInputValue] = React.useState('');
@@ -23,9 +32,9 @@ const sortedArray = newArray.sort()
       }}
       sx={{ width: 300 }}
       value={props.selectedDate}
-      options={sortedArray}
+      options={sortedArray.sort()}
       autoHighlight
-      getOptionLabel={(option) => 
+      getOptionLabel={(option) =>
       option.slice(0, 10)}
       renderOption={(props, option) => (
         <Box
@@ -43,7 +52,7 @@ const sortedArray = newArray.sort()
           label="Choose a departure date"
           inputProps={{
             ...params.inputProps,
-            autoComplete: "new-password", 
+            autoComplete: "new-password",
             value: params.inputProps.value && `${moment(params.inputProps.value).format('LLL').slice(0, -8)}`// disable autocomplete and autofill
           }}
         />

@@ -1,12 +1,8 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import moment from "moment";
 import {
   Typography,
-  Card,
-  Box,
-  CardActions,
-  CardContent,
   Button,
   Container,
   Grid,
@@ -102,14 +98,14 @@ export default function Favourites(props) {
   });
 
   return (
-    <div>
-      <Typography className = "center" variant="h1" align="left">
+    <div className="SubHeading">
+      <Typography className = "textHeading" marginTop="50px">
         Flight Favourites
       </Typography>
 
       <ThemeProvider theme={theme}>
         <Container>
-          <Grid container spacing={6} marginTop="60px" alignItems="stretch">
+          <Grid container spacing={6} marginTop="20px" alignItems="stretch">
             {state.favourites.map((fav, index) => (
               // <li key={fav.favid}>
 
