@@ -53,3 +53,8 @@
 .cards {
     background-color: #F7F7F8;
 }
+
+.fav-button {
+    /* margin-top: 23px; */
+    margin-bottom: 50px;
+}

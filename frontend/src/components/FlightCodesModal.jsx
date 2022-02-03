@@ -35,7 +35,7 @@ export default function FlightCodesModal(props) {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box className="modal-text" sx={style}>
+        <Box sx={style}>
           {props.flightCodeData.map((airports, index) => {
             return (
               <div key={index}>

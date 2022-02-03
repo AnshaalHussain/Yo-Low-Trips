@@ -35,7 +35,7 @@ export default function Flights(props) {
   appFlightCode(id);
 
   const priceReset = () => {
-    setminMaxValue([0, 1000]);
+    setminMaxValue([0, 1200]);
     //console.log("resetted price");
   };
   const destinationReset = () => {
@@ -56,7 +56,7 @@ export default function Flights(props) {
   // console.log("THIS IS USE PARAMS: ", useParams())
   // console.log("THIS SHOULD BE FLIGHTCODE ID: ", id)
 
-  const [minMaxValue, setminMaxValue] = React.useState([0, 1600]);
+  const [minMaxValue, setminMaxValue] = React.useState([0, 1200]);
 
   const [flights, setFlights] = useState([]);
 
@@ -220,7 +220,7 @@ export default function Flights(props) {
               <Grid item xs={12} sm={6} md={3} key={index} height="100%" alignItems="stretch">
                 <Card  sx={{height:"400px"}}>
                   <CardContent className="cards">
-                    <Typography gutterBottom variant="h5" sx={{ minHeight: '71px' }}>
+                    <Typography gutterBottom variant="h5" sx={{ minHeight: '90px' }}>
                       <span className="pop">{airportNamesLookup[flight.destination] ? `${airportNamesLookup[flight.destination]} - ${flight.destination}` : flight.destination}</span>
                       <Divider />
                     </Typography>
@@ -234,13 +234,14 @@ export default function Flights(props) {
                     </Typography>
 
                     <Typography >
-                      <span className="titles">Price</span> : <span className="price">${flight.flightData.price} </span> <br></br>
+                    <span className="titles">Price</span> : <span className="price">${flight.flightData.price} </span> <br></br>
                     </Typography>
                   </CardContent>
 
                   <CardContent className="cards">
                     {flight.favourited === false ? (
                       <Button
+                        className="fav-button"
                         size="small"
                         color="primary"
                         onClick={() => handleAdd(flight, index)}
@@ -249,7 +250,7 @@ export default function Flights(props) {
                         Favourite
                       </Button>
                     ) : (
-                      <Button size="small" color="warning">
+                      <Button className="fav-button" size="small" color="warning">
                         <StarIcon></StarIcon>
                         Favourited
                       </Button>

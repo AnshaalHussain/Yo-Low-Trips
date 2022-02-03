@@ -1501,6 +1501,15 @@
       SEL: "Seoul, Korea",
       OKJ:"Okayama, Japan",
       FMY: "Southwest Florida, USA",
+      YEA: "Edmonton, Canada",
+      HIJ: "Hiroshima, Japan",
+      KCZ: "Nankoku, Japan",
+      MMY: "Miyakojima Japan",
+      SPK: "Hokkaido, Japan",
+      TKS: "Tromsø, Norway",
+      UBJ: "Ube-Shinkawa, Japan",
+      YGJ: "Tottori, Japan",
+      ISG: "Ishigaki, Japan"
     }
 
     // exports.name = airportNamesLookup;
