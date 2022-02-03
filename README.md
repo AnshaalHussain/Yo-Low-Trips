@@ -1,7 +1,9 @@
-https://img.shields.io/github/issues/Charlesdigital/Yo-Low-Trips
-https://img.shields.io/github/forks/Charlesdigital/Yo-Low-Trips
-https://img.shields.io/github/contributors/AnshaalHussain/Yo-Low-Trips
-https://img.shields.io/github/last-commit/AnshaalHussain/Yo-Low-Trips
+![GitHub issues](https://img.shields.io/github/issues/Charlesdigital/Yo-Low-Trips)
+![GitHub forks](https://img.shields.io/github/forks/Charlesdigital/Yo-Low-Trips)
+![GitHub contributor](https://img.shields.io/github/contributors/AnshaalHussain/Yo-Low-Trips)
+![GitHub last commit](https://img.shields.io/github/last-commit/AnshaalHussain/Yo-Low-Trips)
+
+
 
 # Yo-Low-Trips
 
